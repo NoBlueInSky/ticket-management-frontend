@@ -11,7 +11,6 @@ This repository contains the frontend codebase for the Ticket Management system.
 ## Features
 - Ticket creation, updating, and deletion.
 - Filtering and sorting tickets.
-- Add more features here if needed.
 
 ## Technologies Used
 - React.js
