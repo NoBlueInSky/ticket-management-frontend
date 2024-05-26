@@ -63,14 +63,12 @@ const TicketFilterPopup = ({ open, handleClose, onFilter }) => {
                     margin="normal"
                     sx={{ mb: 1 }}
                 />
-                <TextField
-                    label="Status"
-                    value={status}
-                    onChange={(e) => setStatus(e.target.value)}
-                    fullWidth
-                    margin="normal"
-                    sx={{ mb: 2 }}
-                />
+                <select name="status" id="status" value={status} onChange={(e) => setStatus(e.target.status)}>
+                    <option value="PENDING">PENDING</option>
+                    <option value="ACCEPTED">ACCEPTED</option>
+                    <option value="RESOLVED">RESOLVED</option>
+                    <option value="REJECTED">REJECTED</option>
+                </select>
                 <Button onClick={handleSubmit} variant="contained" color="primary" sx={{ mt: 2 }}>
                     Apply Filter
                 </Button>
