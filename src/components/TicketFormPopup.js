@@ -25,44 +25,21 @@ const TicketFormPopup = ({ onSubmit }) => {
     boxShadow: 24,
     p: 4,
   };
-
-  const handleSubmit = (e) => {
+  
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
     const ticketData = {
       title: title,
       description: description,
       contact: contact,
       information: information
     };
-
-    fetch('http://localhost:8080/api/tickets', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(ticketData)
-    })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then(data => {
-        console.log('Ticket created:', data);
-      })
-      .catch(error => {
-        console.error('There was a problem with your fetch operation:', error);
-      });
-
+    onSubmit(ticketData);
     setTitle('');
     setDescription('');
     setContact('');
     setInformation('');
     setIsOpen(false); 
-
-    onSubmit(ticketData);
   };
 
   return (
