@@ -40,6 +40,28 @@ function TicketTable({ tickets, totalTickets, onUpdated, fetchTickets }) {
         setPage(0);
     };
 
+    const statuscolor = (status) => {
+        var text = "";
+        switch(status) {
+            case "PENDING":
+                text = "blue";
+                break;
+            case "ACCEPTED":
+                text = "green";
+                break;
+            case "RESOLVED":
+                text = "yellow";
+                break;
+            case "REJECTED":
+                text = "red";
+                break;
+            default:
+                text = ""
+                break;
+        }
+        return text;
+    }
+
     return (
         <>
             <TableContainer component={Paper}>
@@ -68,7 +90,7 @@ function TicketTable({ tickets, totalTickets, onUpdated, fetchTickets }) {
                                 <TableCell align="right">{ticket.contact}</TableCell>
                                 <TableCell align="right">{ticket.createdAt}</TableCell>
                                 <TableCell align="right">{ticket.updatedAt}</TableCell>
-                                <TableCell align="right">{ticket.status}</TableCell>
+                                <TableCell align="right" style={{ color: statuscolor(ticket.status) }}>{ticket.status}</TableCell>
                                 <TableCell align="right"><button onClick={() => handleUpdateClick(ticket)}>Update</button></TableCell>
                             </TableRow>
                         ))}

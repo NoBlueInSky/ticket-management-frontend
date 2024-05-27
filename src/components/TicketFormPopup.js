@@ -26,7 +26,7 @@ const TicketFormPopup = ({ onSubmit }) => {
     p: 4,
   };
   
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const ticketData = {
       title: title,
